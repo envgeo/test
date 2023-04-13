@@ -9,12 +9,6 @@ import matplotlib.pyplot as plt
 
 
 
-# import numpy as np
-# import pandas as pd
-# import cartopy.crs as ccrs
-# import matplotlib.ticker as mticker
-# import matplotlib.pyplot as plt
-# import datetime as dt
 
 
 @st.cache_resource(experimental_allow_widgets=True)
@@ -313,7 +307,7 @@ def main():
     # ax.set_title('title', fontsize=20)
     # ax.set_title(selected_area, fontsize=20) #Transectでソートした場合
     #全体のタイトル名　　手入力
-    main_title = 'SEAWATER DATA WEB (b01)'
+    # main_title = 'SEAWATER DATA WEB (b01)'
     main_title2 = 'Lon:'+str(sld_lon_min)+'-'+str(sld_lon_max)+', Lat:'+str(sld_lat_min)+'-'+str(sld_lat_max)+', Y:'+str(sld_year_min)+'-'+str(sld_year_max)+', M:'+str(sld_month_min)+'-'+str(sld_month_max)+', S:'+str(sld_sal_min)+'-'+str(sld_sal_max)+', D:'+str(sld_depth_min)+'-'+str(sld_depth_max)+'m'
     # sub_title = 'Area B (N:25-130,E:135-140,D:>10m)'
     # sub_title = '(N:25-130,E:135-140,D:>10m)'
@@ -344,16 +338,16 @@ def main():
     
     
     
-    ############################
+    # ############################
     
-    df1['lat'] = df1['Latitude_degN']
-    df1['lon'] = df1 ['Longitude_degE']
+    # df1['lat'] = df1['Latitude_degN']
+    # df1['lon'] = df1 ['Longitude_degE']
     
-    # df = pd.DataFrame(
-    #     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    #     columns=['lat', 'lon'])
+    # # df = pd.DataFrame(
+    # #     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    # #     columns=['lat', 'lon'])
     
-    st.map(df1)
+    # st.map(df1)
 
 
 if __name__ == '__main__':
