@@ -288,7 +288,7 @@ def main():
     
     
     
-    # ax_cmap = ax.scatter(df1["Longitude_degE"], df1["Latitude_degN"], c=df1['d18O'],cmap='jet', s=10, alpha=0.7, vmin=-1.5, vmax=1, transform=ccrs.PlateCarree())
+    ax_cmap = ax.scatter(df1["Longitude_degE"], df1["Latitude_degN"], c=df1['d18O'],cmap='jet', s=10, alpha=0.7, vmin=-1.5, vmax=1, transform=ccrs.PlateCarree())
     
     
     #カラーバーの位置調整
@@ -302,7 +302,7 @@ def main():
                        )
     
     
-    # fig.colorbar(ax_cmap, shrink=0.65, cax=axins1,orientation='horizontal',label="$\delta^{18}$O"+' (VSMOW)')
+    fig.colorbar(ax_cmap, shrink=0.65, cax=axins1,orientation='horizontal',label="$\delta^{18}$O"+' (VSMOW)')
     
     # ax.set_title('title', fontsize=20)
     # ax.set_title(selected_area, fontsize=20) #Transectでソートした場合
@@ -322,16 +322,16 @@ def main():
     
     sub_tite = str('Fig_d18O_map'+'_'+sub_title2+".png")
     
-    import io
-    fn = sub_tite
-    img = io.BytesIO()
-    plt.savefig(img, format='png')
+    # import io
+    # fn = sub_tite
+    # img = io.BytesIO()
+    # plt.savefig(img, format='png')
      
-    btn = st.download_button(
-       label="Download image",
-       data=img,
-       file_name=fn,
-       mime="image/png")
+    # btn = st.download_button(
+    #    label="Download image",
+    #    data=img,
+    #    file_name=fn,
+    #    mime="image/png")
     
     
     st.pyplot(fig)
@@ -352,4 +352,9 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
+    
+    
+    
+    
     
