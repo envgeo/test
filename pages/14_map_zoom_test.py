@@ -204,22 +204,22 @@ def main():
     
 
     
-    df1 = df1[ (df1['Transect'] == 0) 
-                | (df1['Transect'] == 'CK') 
-                | (df1['Transect'] == 'Nansei') 
-                | (df1['Transect'] == 'nECS') 
-                | (df1['Transect'] == 'Noto') 
-                | (df1['Transect'] == 'Pacific') 
-                | (df1['Transect'] == 'Pacific_west') 
-                | (df1['Transect'] == 'sECS')          
-                | (df1['Transect'] == 'Shimane&Tottori')          
-                | (df1['Transect'] == 'SI')
-                | (df1['Transect'] == 'Toyama')
-                | (df1['Transect'] == 'Tsushima')
-                | (df1['Transect'] == 'Yamato')
-                | (df1['Transect'] == 'NA2') 
+    # df1 = df1[ (df1['Transect'] == 0) 
+    #             | (df1['Transect'] == 'CK') 
+    #             | (df1['Transect'] == 'Nansei') 
+    #             | (df1['Transect'] == 'nECS') 
+    #             | (df1['Transect'] == 'Noto') 
+    #             | (df1['Transect'] == 'Pacific') 
+    #             | (df1['Transect'] == 'Pacific_west') 
+    #             | (df1['Transect'] == 'sECS')          
+    #             | (df1['Transect'] == 'Shimane&Tottori')          
+    #             | (df1['Transect'] == 'SI')
+    #             | (df1['Transect'] == 'Toyama')
+    #             | (df1['Transect'] == 'Tsushima')
+    #             | (df1['Transect'] == 'Yamato')
+    #             | (df1['Transect'] == 'NA2') 
                 
-                | df1.isnull().all(axis=1)]      
+    #             | df1.isnull().all(axis=1)]      
       
 
 
@@ -277,7 +277,7 @@ def main():
     # df1 = df1[(df1['PI'] == "Kodama") | (df1['PI'] == "Kitajima")] 
     
     
-    df_fig_add = df1
+    # df_fig_add = df1
     
     #上記の制限要素用の名前
     # sheet_names_add2 = 'Area B (N:25-130,E:135-140,D:>10m)'
@@ -312,6 +312,46 @@ def main():
     
     # ax.set_title('title', fontsize=20)
     # ax.set_title(selected_area, fontsize=20) #Transectでソートした場合
+    
+    
+    
+    #全体のタイトル名　　手入力
+    main_title = 'SEAWATER DATA WEB (b01)'
+    main_title2 = 'Lon:'+str(sld_lon_min)+'-'+str(sld_lon_max)+', Lat:'+str(sld_lat_min)+'-'+str(sld_lat_max)+', Y:'+str(sld_year_min)+'-'+str(sld_year_max)+', M:'+str(sld_month_min)+'-'+str(sld_month_max)+', S:'+str(sld_sal_min)+'-'+str(sld_sal_max)+', D:'+str(sld_depth_min)+'-'+str(sld_depth_max)+'m'
+    # sub_title = 'Area B (N:25-130,E:135-140,D:>10m)'
+    # sub_title = '(N:25-130,E:135-140,D:>10m)'
+    sub_title2 = ''
+    
+    # title_head = 'seawater_data_(Sea_of_Japan) \n selected_area'
+    title_head = str(main_title+'\n'+main_title2+'\n'+sub_title2)
+    
+    title_head2 = title_head.replace('_', ' ') #図のタイトル表示用
+    fig.suptitle(title_head2,fontsize=10)
+        
+        
+    sub_title2 = main_title2
+    sub_title2 = sub_title2.replace(':', '') #pdf書き出し用
+    # sub_title2 = sub_title2.replace('>', '') #pdf書き出し用
+    # sub_title2 = sub_title2.replace('<', '') #pdf書き出し用
+    sub_title2 = sub_title2.replace(',', '_') #pdf書き出し用
+    sub_title2 = sub_title2.replace(' ', '') #pdf書き出し用
+    sub_title = str('Fig_sal_d18O_SW'+'_'+sub_title2+".png")
+    
+    
+    
+    import io
+
+    fn = sub_title
+    img = io.BytesIO()
+    plt.savefig(img, format='png')
+     
+    btn = st.download_button(
+       label="Download image",
+       data=img,
+       file_name=fn,
+       mime="image/png")
+    
+    
     
     st.pyplot(fig)
     
