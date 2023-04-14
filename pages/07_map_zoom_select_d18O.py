@@ -120,31 +120,7 @@ def main():
     df1 = pd.read_excel(excel_file, sheet_name=sheet_num)
     
 
-    
-    
-    
-    
-    
-    #日本地図描画
-    
-    # fig = plt.figure(figsize=(8, 6), facecolor="white", dpi=150,tight_layout=False)
-    fig = plt.figure(figsize=(8, 6))
-    
-    
-    # ax = fig.add_subplot(111, projection=ccrs.Mercator(central_longitude=140.0), facecolor="white")
-    ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())
-    # ax.set_global()
-    ax.coastlines()
-    ax.set_extent([120, 145, 20, 45], crs=ccrs.PlateCarree()) #この行を入れるとStreamlitでおかしくなる
-    gl = ax.gridlines(draw_labels=True)
-    
-    ####################################################################################################################################################
-    
-    #緯度経度と水深とTransectで制限
-    # df1 = df
-    
-    
-    
+
     
     
     
@@ -240,6 +216,53 @@ def main():
     # df1 = df1[(df1['Transect'] == "Noto") & (df1['Transect'] == "Noto")] 
     #描画するPI指定
     # df1 = df1[(df1['PI'] == "Kodama") | (df1['PI'] == "Kitajima")] 
+    
+    
+    
+    
+    
+    
+    
+    #df1が空になっているかどうかを確認する
+    df_empty = df1.empty
+
+    # st.write(df_empty)
+    data_found_num = str(len(df1["d18O"]))
+
+    
+    # バリデーション処理
+    if df_empty == 1:  #データが無かったとき
+        st.warning('no data found')
+        # 条件を満たないときは処理を停止する
+        st.stop()
+    elif df_empty == 0: #データがあったとき
+        st.write(data_found_num,'data found')
+
+    
+    
+    
+    
+    
+    
+    
+    
+    #日本地図描画
+    
+    # fig = plt.figure(figsize=(8, 6), facecolor="white", dpi=150,tight_layout=False)
+    fig = plt.figure(figsize=(8, 6))
+    
+    
+    # ax = fig.add_subplot(111, projection=ccrs.Mercator(central_longitude=140.0), facecolor="white")
+    ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())
+    # ax.set_global()
+    ax.coastlines()
+    ax.set_extent([120, 145, 20, 45], crs=ccrs.PlateCarree()) #この行を入れるとStreamlitでおかしくなる
+    gl = ax.gridlines(draw_labels=True)
+    
+    ####################################################################################################################################################
+    
+    #緯度経度と水深とTransectで制限
+    # df1 = df
     
     
     
