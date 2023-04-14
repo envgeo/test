@@ -323,16 +323,16 @@ def main():
     
     
     
-    # ############################
+    ############################
     
-    # df1['lat'] = df1['Latitude_degN']
-    # df1['lon'] = df1 ['Longitude_degE']
+    df1['lat'] = df1['Latitude_degN']
+    df1['lon'] = df1 ['Longitude_degE']
     
-    # # df = pd.DataFrame(
-    # #     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    # #     columns=['lat', 'lon'])
+    # df = pd.DataFrame(
+    #     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    #     columns=['lat', 'lon'])
     
-    # st.map(df1)
+    st.map(df1)
 
 
 if __name__ == '__main__':
