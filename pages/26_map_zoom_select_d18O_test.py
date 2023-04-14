@@ -135,7 +135,7 @@ def main():
     ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())
     # ax.set_global()
     ax.coastlines()
-    ax.set_extent([120-0.001, 145+0.001, 20-0.001, 45+0.001])
+    # ax.set_extent([120-0.001, 145+0.001, 20-0.001, 45+0.001], crs=ccrs.PlateCarree())
     gl = ax.gridlines(draw_labels=True)
     
     ####################################################################################################################################################
