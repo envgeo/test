@@ -256,7 +256,7 @@ def main():
     ax = fig.add_subplot(1, 1, 1, projection=ccrs.PlateCarree())
     # ax.set_global()
     ax.coastlines()
-    ax.set_extent([120, 145, 20, 45], crs=ccrs.PlateCarree()) #この行を入れるとStreamlitでおかしくなる
+    # ax.set_extent([120, 145, 20, 45], crs=ccrs.PlateCarree()) #この行を入れるとStreamlitでおかしくなる
     gl = ax.gridlines(draw_labels=True)
     
     ####################################################################################################################################################
