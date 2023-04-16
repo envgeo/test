@@ -849,6 +849,10 @@ def main():
     ax.coastlines()
     # ax.set_extent([120-0.001, 145+0.001, 20-0.001, 45+0.001], crs=ccrs.PlateCarree())
     # ax.set_extent([map_lon_min, map_lon_max, map_lat_min, map_lat_max], crs=ccrs.PlateCarree()) #これがあるとstreamlit cloud動かない？
+        
+    ax.set_xlim([120-0.01, 145+0.01])
+    ax.set_ylim([20-0.01, 45+0.01])
+    
     gl = ax.gridlines(draw_labels=True)
     
     
@@ -954,6 +958,10 @@ def main():
     ax.coastlines()
     # ax.set_extent([120-0.001, 145+0.001, 20-0.001, 45+0.001], crs=ccrs.PlateCarree())
     # ax.set_extent([map_lon_min, map_lon_max, map_lat_min, map_lat_max], crs=ccrs.PlateCarree()) #これがあるとstreamlit cloud動かない？
+        
+    ax.set_xlim([120-0.01, 145+0.01])
+    ax.set_ylim([20-0.01, 45+0.01])
+    
     gl = ax.gridlines(draw_labels=True)
     
     

@@ -113,6 +113,51 @@ def main():
     # st.write(f'Selected: {selected_cruise}')
     
 
+    #スペース入れる
+    st.sidebar.subheader(':blue[  ]')
+    st.sidebar.subheader(':blue[  ]')
+    st.sidebar.subheader(':blue[--- for fig scale only ---]')
+    
+    
+    #地図の描画範囲（拡大）
+    # # 120-0.001, 145+0.001, 20-0.001, 45+0.001
+    
+    # # st.sidebar.subheader('地図の経度の範囲（拡大）')
+    map_lon_min, map_lon_max = st.sidebar.slider(label='Map Longitude selected',
+                                min_value=120-0.001,
+                                max_value=145+0.001,
+                                value=(120-0.001, 145+0.001),
+                                )
+    # # st.sidebar.write(f'Selected: {map_lon_min} ~ {map_lon_max}')
+    
+    # # st.sidebar.subheader('地図の緯度の範囲（拡大）')
+    map_lat_min, map_lat_max = st.sidebar.slider(label='Map Latitude selected',
+                                min_value=20-0.001,
+                                max_value=45+0.001,
+                                value=(20-0.001, 45+0.001),
+                                )
+    # # st.sidebar.write(f'Selected: {map_lat_min} ~ {map_lat_max}')
+    
+    
+    # st.sidebar.subheader('描画水深の範囲')
+    fig_depth_min, fig_depth_max = st.sidebar.slider(label='Water depth selected',
+                                min_value=0,
+                                max_value=1000,
+                                value=(0, 500),
+                                )
+    # st.sidebar.write(f'Selected: {fig_depth_min} ~ {fig_depth_max}')
+    
+
+
+
+
+
+
+
+
+
+
+
     
     excel_file = 'd18O_20210626-3_NA2.xlsx'
     sheet_num = 1
@@ -259,8 +304,15 @@ def main():
     # ax.set_extent([120-0.01, 145+0.01, 20-0.01, 45+0.01]) #この行を入れるとStreamlitでおかしくなる
     # ax.set_extent([120-0.001, 145+0.001, 20-0.001, 45+0.001], crs=ccrs.PlateCarree())
     
-    ax.set_xlim([120, 145])
-    ax.set_ylim([20, 45])
+    # ax.set_xlim([120-0.01, 145+0.01])
+    # ax.set_ylim([20-0.01, 45+0.01])
+    
+    
+    ax.set_xlim([map_lon_min, map_lon_max])
+    ax.set_ylim([map_lat_min, map_lat_max])
+    
+    
+    
     
     
     gl = ax.gridlines(draw_labels=True)
