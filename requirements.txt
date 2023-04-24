@@ -1,5 +1,4 @@
 #streamlit
-
 #matplotlib
 #cartopy
 #openpyxl
@@ -13,4 +12,3 @@
 #folium
 ##sklearn
 ##io #だめ
-
